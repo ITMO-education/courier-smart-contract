@@ -22,8 +22,8 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-      - run: cp package.json ./build/package.json
-      - run:
+      - run: |
+          cp package.json ./build/package.json
+          cd build
           npm config set //npm.pkg.github.com/:_authToken $NPM_TOKEN
-      - run: npm publish
-        working-directory: ./build
+          npm publish

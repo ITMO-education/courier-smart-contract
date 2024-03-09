@@ -1,5 +1,5 @@
 {
-    "name": "@ITMO-education/delivery",
+    "name": "@itmo-education/delivery",
     "version": "0.0.1",
     "main": "CO2/tact_CO2.ts",
     "scripts": {
@@ -32,7 +32,7 @@
         "url": "git+https://github.com/ITMO-education/courier-smart-contract.git"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com",
+        "registry": "https://npm.pkg.github.com/",
         "access": "public"
     }
 }
