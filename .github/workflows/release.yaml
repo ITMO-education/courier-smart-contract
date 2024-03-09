@@ -20,6 +20,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
+      - run: cp package.json ./build/package.json
       - run: npm publish
         working-directory: ./build
         env:
