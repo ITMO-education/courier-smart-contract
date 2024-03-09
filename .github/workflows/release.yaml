@@ -18,13 +18,12 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
         env:
-          NPM_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm install
       - run: npm run build
       - run: npm test
       - run: cp package.json ./build/package.json
-      - run: |
-          echo @AlexSkilled:https://npm.pkg.github.com/ > build/.npmrc
-          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> build/.npmrc
+      - run:
+          npm config set //npm.pkg.github.com/:_authToken $NPM_TOKEN
       - run: npm publish
         working-directory: ./build

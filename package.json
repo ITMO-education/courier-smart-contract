@@ -1,6 +1,7 @@
 {
-    "name": "delivery",
+    "name": "@ITMO-education/delivery",
     "version": "0.0.1",
+    "main": "CO2/tact_CO2.ts",
     "scripts": {
         "start": "blueprint run",
         "build": "blueprint build",
@@ -26,7 +27,12 @@
         "ton": "^13.9.0",
         "ton-core": "^0.53.0"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ITMO-education/courier-smart-contract.git"
+    },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/ITMO-education"
+        "registry": "https://npm.pkg.github.com",
+        "access": "public"
     }
 }
