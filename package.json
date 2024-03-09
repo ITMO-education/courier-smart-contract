@@ -27,6 +27,6 @@
         "ton-core": "^0.53.0"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
+        "registry": "https://npm.pkg.github.com/ITMO-education"
     }
 }
