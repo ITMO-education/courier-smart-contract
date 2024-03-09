@@ -1,12 +1,11 @@
-import {Address, toNano} from '@ton/core';
+import { toNano} from '@ton/core';
 import {CO2} from '../wrappers/CO2';
 import {NetworkProvider} from '@ton/blueprint';
-import {Point} from "../build/CO2/tact_CO2";
+
 
 export async function run(provider: NetworkProvider) {
     const cO2 = provider.open(
         await CO2.fromInit(
-            Address.parseFriendly("0QB5Bk8hiyoLtUw50CtvaqbIdhR7AJOBVSK9kGxxQ0Ko4mbj").address,
             {
                 $$type: 'DeliveryInfo',
                 declaredSum: toNano(1),

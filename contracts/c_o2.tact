@@ -90,7 +90,7 @@ contract CO2 with Deployable, Ownable {
                 SendParameters{
                     to: self.courier!!,
                     bounce: false,
-                    value: self.DeliveryInfo.courierFee+self.deliveryInfo,
+                    value: self.deliveryInfo.courierFee,
                     mode: SendIgnoreErrors
             });
         }
