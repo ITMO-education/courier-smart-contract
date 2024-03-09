@@ -21,5 +21,6 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm publish
+        working-directory: ./build
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.GITHUB_TOKEN}}
