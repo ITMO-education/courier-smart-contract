@@ -1,4 +1,4 @@
-import {Blockchain, SandboxContract, SendMessageResult, TreasuryContract} from '@ton/sandbox';
+import {Blockchain, SandboxContract, TreasuryContract} from '@ton/sandbox';
 import {toNano} from '@ton/core';
 import {CO2} from '../wrappers/CO2';
 import '@ton/test-utils';
