@@ -3,6 +3,7 @@ import {TonConnectButton} from "@tonconnect/ui-react";
 import {ContractListItem} from "../components/ContractListItem.tsx";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {AddButton} from "../components/AddButton/AddButton.tsx";
 
 export function HomePage() {
 
@@ -19,7 +20,6 @@ export function HomePage() {
 
     return (
         <div className={cls.HomePage}>
-
             <div className={cls.ContractsList}>
                 {addrs.map((a) => {
                     return (
@@ -32,13 +32,12 @@ export function HomePage() {
                 })}
             </div>
 
-            <div className={cls.buttonContainer}>
-                <div className={cls.sideContainer}>
+            <div className={cls.ButtonContainer}>
+                <div className={cls.UserButton}>
                     <TonConnectButton/>
                 </div>
-
-                <div className={cls.sideContainer}>
-                    {/*  TODO Кнопка создания*/}
+                <div className={cls.AddButton}>
+                    <AddButton/>
                 </div>
             </div>
         </div>

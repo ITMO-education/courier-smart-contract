@@ -25,18 +25,20 @@
     cursor: pointer;
 }
 
-.buttonContainer {
+.ButtonContainer {
     display: grid;
     justify-content: space-around;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
 
     padding: 0.5em;
 }
 
-
-.sideContainer{
+.UserButton {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
+.AddButton {
+    display: flex;
+    justify-content: center;
+}
