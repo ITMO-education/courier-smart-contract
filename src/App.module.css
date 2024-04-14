@@ -1,0 +1,11 @@
+.App {
+  width: fit-content;
+  height: 100%;
+
+  min-width: 520px;
+  max-height: 680px;
+
+  border: var(--secondary-bg-color) solid;
+  background-color: var(--primary-bg-color);
+  border-radius: 5%;
+}

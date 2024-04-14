@@ -1,0 +1,11 @@
+.AddressText {
+    font-size: 0.75em;
+    color: var(--secondary-fg-color);
+
+    display: inline-block;
+    max-width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

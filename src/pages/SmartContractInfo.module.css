@@ -1,0 +1,81 @@
+.SmartContractInfoContainer {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 1em;
+    justify-content: stretch;
+    gap: 1em;
+}
+
+
+.BackButton {
+    border-radius: 50%;
+
+    width: 2em;
+    height: 2em;
+    border: none;
+    cursor: pointer;
+}
+
+.HeaderContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.NameContainer {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.DescriptionContainer {
+    border: var(--thirdly-bg-color) dashed;
+    min-height:  3em;
+    padding: 0.5em;
+}
+
+.InfoContainer {
+    box-sizing: border-box;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: stretch;
+    gap: min(1.5em, 48px);
+}
+
+.PersonContainer {
+    box-sizing: border-box;
+    display: flex;
+}
+.Person {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    flex: 1
+}
+
+.ValueContainer {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: 1fr;
+}
+
+.Loading {
+    text-align: center;
+    position: relative;
+    height: 100%;
+    top: 25%
+}
+
+.InfoSectionName {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.5em 0.5em 0.5em 0;
+}

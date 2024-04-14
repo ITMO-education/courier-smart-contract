@@ -1,0 +1,42 @@
+.HomePage {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: content-box;
+}
+
+.ContractsList {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+}
+
+.ListItem {
+    width: 100%;
+    height: 4em;
+    border: var(--thirdly-bg-color) solid;
+    border-radius: 15px;
+    padding: 0.5em;
+
+    cursor: pointer;
+}
+
+.buttonContainer {
+    display: grid;
+    justify-content: space-around;
+    grid-template-rows: 50% 50%;
+
+    padding: 0.5em;
+}
+
+
+.sideContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
