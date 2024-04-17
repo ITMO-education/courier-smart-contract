@@ -4,13 +4,14 @@ import {NetworkProvider} from '@ton/blueprint';
 
 
 export async function run(provider: NetworkProvider) {
-    const cO2 = provider.open(
+    const smartContract = provider.open(
         await CO2.fromInit(
             {
                 $$type: 'DeliveryInfo',
                 declaredSum: toNano(1),
                 courierFee: toNano(0.5),
-                description: 'description',
+                description: "Ozon. Code is 5674",
+                name: "TON White paper by N.Durov",
                 from: {
                     $$type: 'Point',
                     lat: BigInt(1),
@@ -25,7 +26,7 @@ export async function run(provider: NetworkProvider) {
         ),
     );
 
-    await cO2.send(
+    await smartContract.send(
         provider.sender(),
         {
             value: toNano('1.1'),
@@ -37,10 +38,10 @@ export async function run(provider: NetworkProvider) {
         }
     );
 
-    await provider.waitForDeploy(cO2.address);
+    await provider.waitForDeploy(smartContract.address);
 
-    console.log(await cO2.getBalance());
-    console.log(await cO2.getOwner());
-    console.log(await cO2.getDeliveryInfo());
-    console.log(await cO2.getState());
+    console.log(await smartContract.getBalance());
+    console.log(await smartContract.getOwner());
+    console.log(await smartContract.getDeliveryInfo());
+    console.log(await smartContract.getState());
 }

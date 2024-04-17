@@ -18,6 +18,7 @@ struct DeliveryInfo {
     declaredSum: Int as uint64;
     courierFee: Int as uint64;
 
+    name: String;
     description: String;
 
     from: Point;
@@ -45,6 +46,8 @@ contract CO2 with Deployable, Ownable {
 
     init(deliveryInfo: DeliveryInfo) {
         self.owner = sender();
+        require(deliveryInfo.name != "", "Name must be filled");
+        require(deliveryInfo.description != "", "Description must be filled");
         self.deliveryInfo = deliveryInfo;
         self.state = StateCreated;
     }
