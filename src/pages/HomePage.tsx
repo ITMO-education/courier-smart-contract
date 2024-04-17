@@ -3,7 +3,7 @@ import {TonConnectButton} from "@tonconnect/ui-react";
 import {ContractListItem} from "../components/ContractListItem.tsx";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {AddButton} from "../components/AddButton/AddButton.tsx";
+import {ActionButton} from "../components/AddButton/ActionButton.tsx";
 
 export function HomePage() {
 
@@ -37,7 +37,9 @@ export function HomePage() {
                     <TonConnectButton/>
                 </div>
                 <div className={cls.AddButton}>
-                    <AddButton/>
+                    <Link to={`/create`} style={{textDecoration: 'none'}}>
+                        <ActionButton text={"New contract"}/>
+                    </Link>
                 </div>
             </div>
         </div>

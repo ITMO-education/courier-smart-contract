@@ -12,20 +12,10 @@
 }
 
 
-.BackButton {
-    border-radius: 50%;
-
-    width: 2em;
-    height: 2em;
-    border: none;
-    cursor: pointer;
-}
-
 .HeaderContainer {
     display: flex;
     width: 100%;
     justify-content: space-between;
-
 }
 
 .NameContainer {

@@ -18,7 +18,6 @@ export function ContractListItem({contractAddressStr}: ContractListItemProps) {
         if (info){
             return
         }
-
         LoadContractInfo(contractAddressStr).then(
             (res)=> {
                 if (res) {

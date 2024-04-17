@@ -1,0 +1,28 @@
+.InputContainer {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+}
+
+.TextInput {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: none;
+
+    border-radius: 1em;
+
+    padding:  0.5em 1em 0.5em 1em ;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Works for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

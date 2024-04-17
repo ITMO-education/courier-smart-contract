@@ -1,11 +1,11 @@
 import cls from './SmartContractInfo.module.css'
 
-import {Link} from "react-router-dom";
 import {currentContract} from "../state/CurrentContract.ts";
 import {GetStateName} from "../service/dictionary/ContractState.ts";
 import {fromNano} from "@ton/core";
 import {useHookstate} from "@hookstate/core";
 import {TonAddress} from "../components/TonAddress/TonAddress.tsx";
+import {ReturnButton} from "../components/ReturnButton/ReturnButton.tsx";
 
 export function SmartContractInfo() {
 
@@ -19,16 +19,10 @@ export function SmartContractInfo() {
         return (<div className={cls.Loading}>Loading...</div>)
     }
 
-
     return (
         <div className={cls.SmartContractInfoContainer}>
             <div className={cls.HeaderContainer}>
-                <Link to={"/"}>
-                    <button className={cls.BackButton}>
-                        ←
-                    </button>
-
-                </Link>
+                <ReturnButton to={"/"}/>
                 <div className={cls.NameContainer}>{info.name}</div>
                 <div>{GetStateName(info.state)}</div>
             </div>
