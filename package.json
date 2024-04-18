@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@hookstate/core": "^4.0.1",
-    "@itmo-education/courier-smart-contract": "npm:@ITMO-education/courier-smart-contract@^0.0.4",
+    "@itmo-education/courier-smart-contract": "npm:@ITMO-education/courier-smart-contract@^0.0.5",
     "@pbe/react-yandex-maps": "^1.2.5",
+    "@ton/blueprint": "^0.19.1",
     "@ton/core": "^0.56.3",
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^13.11.1",

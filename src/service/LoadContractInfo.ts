@@ -1,12 +1,12 @@
-import {SmartContract} from "../../api/model/SmartContract.ts";
-import tonClient from "../../ton/GetTonClient.ts";
 import {CO2} from "@itmo-education/courier-smart-contract";
 import {Address, OpenedContract} from "@ton/core";
-import {fromTonPoint} from "../../api/model/Point.ts";
 import memoize from "lodash.memoize";
+import {SmartContract} from "../api/model/SmartContract.ts";
+import getTonClient from "../ton/GetTonClient.ts";
+import {fromTonPoint} from "../api/model/Point.ts";
 
 const loadSmartContract = async (address: string): Promise<SmartContract | undefined> => {
-    const client = await tonClient()
+    const client = await getTonClient()
     const contract =
         client.open(
             CO2.fromAddress(

@@ -6,13 +6,21 @@
     flex-direction: column;
     justify-content: space-between;
 
-    box-sizing: content-box;
+
+    padding-top: 1em;
+    padding-bottom: 2em;
+    box-sizing: border-box;
 }
 
 .ContractsList {
     box-sizing: border-box;
     width: 100%;
     padding: 1em;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .ListItem {

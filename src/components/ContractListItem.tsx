@@ -3,8 +3,8 @@ import cls from './ContractListItem.module.css'
 import {GetStateName} from "../service/dictionary/ContractState.ts";
 import {useEffect, useState} from "react";
 import {SmartContract} from "../api/model/SmartContract.ts";
-import LoadContractInfo from "../state/memo/LoadContractInfo.ts";
 import {TonAddress} from "./TonAddress/TonAddress.tsx";
+import LoadContractInfo from "../service/LoadContractInfo.ts";
 
 interface ContractListItemProps {
     contractAddressStr: string

@@ -31,6 +31,7 @@ body {
   --thirdly-bg-color: rgb(0, 207, 255);
   --header-color: rgba(255, 237, 237, 100%);
   --primary-fg-color: #232328;
+  --error-fg-color: #530101;
   --secondary-fg-color: rgb(171, 171, 171)
 }
 

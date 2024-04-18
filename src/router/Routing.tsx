@@ -3,8 +3,8 @@ import {HomePage} from "../pages/HomePage.tsx";
 
 import {createBrowserRouter} from "react-router-dom";
 import {currentContract} from "../state/CurrentContract.ts";
-import LoadContractInfo from "../state/memo/LoadContractInfo.ts";
 import {CreateSmartContract} from "../pages/CreateSmartContract.tsx";
+import LoadContractInfo from "../service/LoadContractInfo.ts";
 
 export const router = createBrowserRouter([
     {

@@ -4,13 +4,13 @@
     align-items: center;
 
     height: 100%;
+
+    font: inherit;
 }
 
 .ActionButton {
     border-radius: 100vh;
     height: 100%;
-
-    background-color: var(--thirdly-bg-color);
 
     min-width: min(9.5em, 148px);
 
@@ -19,5 +19,5 @@
     border: none;
     justify-content: center;
 
-    cursor: pointer;
+    font: inherit;
 }

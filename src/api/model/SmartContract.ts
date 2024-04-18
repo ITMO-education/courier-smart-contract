@@ -1,4 +1,4 @@
-import {Point} from "./Point.ts";
+import {TonPoint} from "./Point.ts";
 
 export interface SmartContract {
     address: string
@@ -13,6 +13,6 @@ export interface SmartContract {
     courierAddress: string | undefined
     courierFee: bigint;
 
-    to: Point
-    from: Point
+    to: TonPoint
+    from: TonPoint
 }

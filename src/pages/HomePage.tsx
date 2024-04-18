@@ -3,7 +3,7 @@ import {TonConnectButton} from "@tonconnect/ui-react";
 import {ContractListItem} from "../components/ContractListItem.tsx";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {ActionButton} from "../components/AddButton/ActionButton.tsx";
+import {ActionButton} from "../components/ActionButton/ActionButton.tsx";
 
 export function HomePage() {
 
@@ -14,6 +14,7 @@ export function HomePage() {
         // TODO do fetch
         setContractAddresses([
             'EQDIeN51larPLvJQwf09UqfNhw81QetqcAJgSw50gO1A1Qvk',
+            'EQD8xW7sKDszzTh1oL-CwnjKhmRq3Pe4yZE2l-xH3rA7O0KV',
             // "EQCMtWBeQ-MprpdVs0zgs4SMN1A2CR53oLX2N4FxYnVrfLs8",
         ])
     }, []);
