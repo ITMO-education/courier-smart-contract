@@ -4,6 +4,7 @@ import {ContractListItem} from "../components/ContractListItem.tsx";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {ActionButton} from "../components/ActionButton/ActionButton.tsx";
+import {listContracts} from "../api/backend/api.ts";
 
 export function HomePage() {
 
@@ -11,12 +12,14 @@ export function HomePage() {
 
 
     useEffect(() => {
-        // TODO do fetch
-        setContractAddresses([
-            'EQDIeN51larPLvJQwf09UqfNhw81QetqcAJgSw50gO1A1Qvk',
-            'EQD8xW7sKDszzTh1oL-CwnjKhmRq3Pe4yZE2l-xH3rA7O0KV',
-            // "EQCMtWBeQ-MprpdVs0zgs4SMN1A2CR53oLX2N4FxYnVrfLs8",
-        ])
+        listContracts({limit: 10, offset: 0}).
+        then(r => {
+            return r.map(c => c.tonAddress)
+        }).
+        then(r => {
+            setContractAddresses(r)
+        })
+
     }, []);
 
     return (

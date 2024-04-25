@@ -1,9 +1,13 @@
-import { defineConfig } from 'vite';
+import {defineConfig, loadEnv} from 'vite';
+import {nodePolyfills} from 'vite-plugin-node-polyfills';
 import react from '@vitejs/plugin-react';
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(), nodePolyfills()],
-  base: '/',
-});
+// @ts-ignore
+export default ({mode}) => {
+  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+
+    return defineConfig({
+        plugins: [react(), nodePolyfills()],
+        base: '/',
+    });
+}
