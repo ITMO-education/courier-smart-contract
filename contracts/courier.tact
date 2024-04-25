@@ -38,7 +38,7 @@ const OperationFee: Int = 100;
 
 contract CO2 with Deployable, Ownable {
     owner: Address;
-    courier: Address;
+    courier: Address?;
 
     deliveryInfo: DeliveryInfo;
 
