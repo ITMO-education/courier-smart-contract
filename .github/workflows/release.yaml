@@ -1,0 +1,29 @@
+name: Delivery Smart contract
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+      - run: npm ci
+      - run: |
+          cp package.json ./build/package.json
+          cd build
+          npm publish --access=public
