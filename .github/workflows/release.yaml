@@ -3,7 +3,7 @@ name: Delivery Smart contract
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
