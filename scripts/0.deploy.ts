@@ -1,7 +1,6 @@
 import { toNano} from '@ton/core';
 import {CO2} from '../wrappers/CO2';
 import {NetworkProvider} from '@ton/blueprint';
-import TonConnect   from '@tonconnect/sdk';
 
 export async function run(provider: NetworkProvider) {
     const smartContract = provider.open(
@@ -10,8 +9,8 @@ export async function run(provider: NetworkProvider) {
                 $$type: 'DeliveryInfo',
                 declaredSum: toNano(1),
                 courierFee: toNano(0.5),
-                description: "Ozon. Code is 5678",
-                name: "TON White paper by N.Durov and P.Durov",
+                description: "Ozone Code is 5679",
+                name: "TON White paper by N.Durov and P.Durov ver1",
                 from: {
                     $$type: 'Point',
                     lat: BigInt(1),
@@ -39,9 +38,4 @@ export async function run(provider: NetworkProvider) {
     );
 
     await provider.waitForDeploy(smartContract.address);
-
-    console.log(await smartContract.getBalance());
-    console.log(await smartContract.getOwner());
-    console.log(await smartContract.getDeliveryInfo());
-    console.log(await smartContract.getState());
 }

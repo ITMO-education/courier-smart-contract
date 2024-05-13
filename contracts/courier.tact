@@ -46,13 +46,13 @@ contract CO2 with Deployable, Ownable {
 
     init(deliveryInfo: DeliveryInfo) {
         self.owner = sender();
-        require(deliveryInfo.name != "", "Name must be filled");
-        require(deliveryInfo.description != "", "Description must be filled");
         self.deliveryInfo = deliveryInfo;
         self.state = StateCreated;
+
+        require(deliveryInfo.name != "", "Name must be filled");
+        require(deliveryInfo.description != "", "Description must be filled");
     }
 
-    // increment
     // starts this SC delivery offer
     receive("start") {
         require(sender() == self.owner, "Only owner can start this SC");
@@ -62,8 +62,7 @@ contract CO2 with Deployable, Ownable {
         self.state = StatePayed;
     }
 
-    // increment
-    // accepts this SC delivery offer
+    // Courier agreed to deliver
     receive("accept") {
         require(context().value >= self.deliveryInfo.declaredSum + CourierCancellationPenalty + OperationFee, "Less then required for accepting");
         require(self.state == StatePayed, "SC must be in state 'Payed' before it can be accepted ");
@@ -72,6 +71,7 @@ contract CO2 with Deployable, Ownable {
         self.state = StateFoundCourier;
     }
 
+    // Courier picked up a package
     receive("pickup") {
         require(sender() == self.courier, "Only courier can send 'pickup' message");
         require(self.state == StateFoundCourier, "SC must be in state 'FoundCourier' in order to change state to 'PickedUp'");
