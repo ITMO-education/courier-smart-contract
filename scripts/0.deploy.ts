@@ -7,10 +7,10 @@ export async function run(provider: NetworkProvider) {
         await CO2.fromInit(
             {
                 $$type: 'DeliveryInfo',
-                declaredSum: toNano(1),
-                courierFee: toNano(0.5),
-                description: "Ozone Code is 5679",
-                name: "TON White paper by N.Durov and P.Durov ver1",
+                declaredSum: toNano(10.1),
+                courierFee: toNano(1.5),
+                description: "Код в озоне 1234",
+                name: "Дом книги",
                 from: {
                     $$type: 'Point',
                     lat: BigInt(1),

@@ -1,6 +1,6 @@
 {
     "name": "@ITMO-education/courier-smart-contract",
-    "version": "0.0.7",
+    "version": "v0.0.8",
     "main": "CO2/tact_CO2.ts",
     "scripts": {
         "start": "blueprint run",
@@ -8,7 +8,6 @@
         "test": "jest --verbose"
     },
     "dependencies": {
-        "@itmo-education/courier-smart-contract": "npm:@ITMO-education/courier-smart-contract@^0.0.5",
         "@orbs-network/ton-access": "^2.3.3",
         "@ton/blueprint": "^0.19.1",
         "@ton/core": "^0.56.3",
