@@ -28,7 +28,7 @@ struct DeliveryInfo {
 struct TotalInfo {
     short: DeliveryInfo;
     owner: Address;
-    courier: Address?;
+    courier: Address? = null;
     state: Int as uint8;
 }
 

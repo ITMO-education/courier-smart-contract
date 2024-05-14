@@ -1,6 +1,6 @@
 {
     "name": "@ITMO-education/courier-smart-contract",
-    "version": "v0.0.10",
+    "version": "v0.0.11",
     "main": "CO2/tact_CO2.ts",
     "scripts": {
         "start": "blueprint run",

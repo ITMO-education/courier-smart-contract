@@ -6,7 +6,7 @@ import {contractID} from "./env";
 export async function run(provider: NetworkProvider, args: string[]) {
     const ui = provider.ui();
 
-    const address = Address.parse('EQAx1VHIQbXV_H6cT_4V4goSZp6uViWCYcwmOQArC7o4ycHh')
+    const address = Address.parse('EQCs3c4l0hUhXb8_PSFTOWKoIxtFpujBop-20v_mmTFD2Pb_')
 
     if (!(await provider.isContractDeployed(address))) {
         ui.write(`Error: Contract at address ${address} is not deployed!`);
