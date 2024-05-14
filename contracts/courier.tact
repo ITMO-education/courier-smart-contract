@@ -47,6 +47,8 @@ contract CO2 with Deployable, Ownable {
     owner: Address;
     courier: Address?;
 
+    createdAt: Int;
+
     deliveryInfo: DeliveryInfo;
 
     state: Int as uint8;
@@ -55,6 +57,7 @@ contract CO2 with Deployable, Ownable {
         self.owner = sender();
         self.deliveryInfo = deliveryInfo;
         self.state = StateCreated;
+        self.createdAt = now();
 
         require(deliveryInfo.name != "", "Name must be filled");
         require(deliveryInfo.description != "", "Description must be filled");
@@ -97,12 +100,13 @@ contract CO2 with Deployable, Ownable {
 
         if (self.courier != null) {
             send(
-            SendParameters{
-            to: self.courier!!,
-            bounce: false,
-            value: self.deliveryInfo.courierFee,
-            mode: SendIgnoreErrors
-            });
+                SendParameters{
+                    to: self.courier!!,
+                    bounce: false,
+                    value: self.deliveryInfo.courierFee,
+                    mode: SendIgnoreErrors
+                }
+            );
         }
 
         self.reply("done".asComment());

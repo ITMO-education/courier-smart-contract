@@ -93,7 +93,7 @@ describe('CO2', () => {
                 queryId: 0n,
             },
         );
-
+        const tt = await contract.getTotalInfo()
         expect(res.transactions).toHaveTransaction({
             from: owner.address,
             to: contract.address,
