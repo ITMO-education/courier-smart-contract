@@ -25,6 +25,13 @@ struct DeliveryInfo {
     to: Point;
 }
 
+struct TotalInfo {
+    short: DeliveryInfo;
+    owner: Address;
+    courier: Address?;
+    state: Int as uint8;
+}
+
 const StateCreated: Int = 1;
 const StatePayed: Int = 2;
 const StateFoundCourier: Int = 3;
@@ -90,11 +97,11 @@ contract CO2 with Deployable, Ownable {
 
         if (self.courier != null) {
             send(
-                SendParameters{
-                    to: self.courier!!,
-                    bounce: false,
-                    value: self.deliveryInfo.courierFee,
-                    mode: SendIgnoreErrors
+            SendParameters{
+            to: self.courier!!,
+            bounce: false,
+            value: self.deliveryInfo.courierFee,
+            mode: SendIgnoreErrors
             });
         }
 
@@ -104,9 +111,7 @@ contract CO2 with Deployable, Ownable {
     // cancels this SC delivery offer
     // depending on whom it was canceled by
     // fee will be payed
-    receive("cancel") {
-
-    }
+    receive("cancel") {}
 
     get fun deliveryInfo(): DeliveryInfo {
         return self.deliveryInfo;
@@ -122,5 +127,14 @@ contract CO2 with Deployable, Ownable {
 
     get fun courier(): Address? {
         return self.courier;
+    }
+
+    get fun totalInfo(): TotalInfo {
+        return TotalInfo{
+            short: self.deliveryInfo,
+            owner: self.owner,
+            courier: self.courier,
+            state: self.state
+        };
     }
 }
