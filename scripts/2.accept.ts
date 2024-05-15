@@ -1,12 +1,12 @@
 import { Address, toNano } from '@ton/core';
 import { CO2 } from '../wrappers/CO2';
 import { NetworkProvider } from '@ton/blueprint';
-import { contractID, courierFee, operationFee } from './env/env';
+import { contractID, courierCancelPenalty, courierFee, declaredSum, operationFee } from './env/env';
 
 export async function run(provider: NetworkProvider, args: string[]) {
     const ui = provider.ui();
 
-    const address = Address.parse(contractID)
+    const address = Address.parse(contractID);
 
     if (!(await provider.isContractDeployed(address))) {
         ui.write(`Error: Contract at address ${address} is not deployed!`);
@@ -18,10 +18,10 @@ export async function run(provider: NetworkProvider, args: string[]) {
     await cO2.send(
         provider.sender(),
         {
-            value: courierFee+operationFee,
-            bounce: false,
+            value: declaredSum + courierCancelPenalty + operationFee,
+            bounce: false
         },
-        "accept"
+        'accept'
     );
 
     ui.write('Waiting for contract to start');

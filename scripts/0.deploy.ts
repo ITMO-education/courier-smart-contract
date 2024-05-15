@@ -1,15 +1,15 @@
-import { toNano} from '@ton/core';
 import {CO2} from '../wrappers/CO2';
 import {NetworkProvider} from '@ton/blueprint';
+import { courierFee, declaredSum, operationFee } from './env/env';
 
 export async function run(provider: NetworkProvider) {
     const smartContract = provider.open(
         await CO2.fromInit(
             {
                 $$type: 'DeliveryInfo',
-                declaredSum: toNano(10.1),
-                courierFee: toNano(1.5),
-                description: "Код в озоне 1234",
+                declaredSum: declaredSum,
+                courierFee: courierFee,
+                description: "Код в озоне 1",
                 name: "Дом книги",
                 from: {
                     $$type: 'Point',
@@ -28,7 +28,7 @@ export async function run(provider: NetworkProvider) {
     await smartContract.send(
         provider.sender(),
         {
-            value: toNano('1.1'),
+            value: operationFee,
             bounce: false
         },
         {

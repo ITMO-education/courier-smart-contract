@@ -1,7 +1,7 @@
 import { Address, toNano } from '@ton/core';
 import { CO2 } from '../wrappers/CO2';
-import { NetworkProvider } from '@ton/blueprint';
-import { contractID, courierFee, operationFee } from './env/env';
+import { NetworkProvider, sleep } from '@ton/blueprint';
+import { contractID } from './env/env';
 
 export async function run(provider: NetworkProvider, args: string[]) {
     const ui = provider.ui();
@@ -15,15 +15,8 @@ export async function run(provider: NetworkProvider, args: string[]) {
 
     const cO2 = provider.open(CO2.fromAddress(address));
 
-    await cO2.send(
-        provider.sender(),
-        {
-            value: courierFee+operationFee,
-            bounce: false,
-        },
-        "accept"
-    );
-
+    const ti = await cO2.getTotalInfo();
+    console.log(ti)
     ui.write('Waiting for contract to start');
     ui.clearActionPrompt();
     ui.write('Contract started successfully!');

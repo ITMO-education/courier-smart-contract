@@ -63,22 +63,24 @@ contract CO2 with Deployable, Ownable {
         require(deliveryInfo.description != "", "Description must be filled");
     }
 
-    // starts this SC delivery offer
+    // starts this SC delivery offer by owner
     receive("start") {
-        require(sender() == self.owner, "Only owner can start this SC");
         require(self.state == StateCreated, "SC must be in state 'Created'");
-        require(myBalance() >= self.deliveryInfo.declaredSum + self.deliveryInfo.courierFee + OperationFee, "Not enough money on balance to start");
+        require(sender() == self.owner, "Only owner can start this SC");
 
         self.state = StatePayed;
+
+        require(myBalance() >= self.deliveryInfo.courierFee, "Not enough money on balance to start");
     }
 
     // Courier agreed to deliver
     receive("accept") {
-        require(context().value >= self.deliveryInfo.declaredSum + CourierCancellationPenalty + OperationFee, "Less then required for accepting");
         require(self.state == StatePayed, "SC must be in state 'Payed' before it can be accepted ");
 
         self.courier = sender();
         self.state = StateFoundCourier;
+
+        require(context().value >= self.deliveryInfo.declaredSum + CourierCancellationPenalty, "Less then required for accepting");
     }
 
     // Courier picked up a package
@@ -98,18 +100,22 @@ contract CO2 with Deployable, Ownable {
 
         self.state = StateDelivered;
 
-        if (self.courier != null) {
-            send(
-                SendParameters{
-                    to: self.courier!!,
-                    bounce: false,
-                    value: self.deliveryInfo.courierFee,
-                    mode: SendIgnoreErrors
-                }
-            );
+        send(
+        SendParameters{
+            to: self.courier!!,
+            bounce: false,
+            value: self.deliveryInfo.courierFee+self.deliveryInfo.declaredSum,
+            mode: SendIgnoreErrors
         }
+        );
 
-        self.reply("done".asComment());
+        send(
+        SendParameters{
+            to: sender(),
+            bounce: true,
+            value: 0,
+            mode: SendRemainingBalance + SendIgnoreErrors
+        });
     }
 
     // cancels this SC delivery offer
@@ -135,10 +141,10 @@ contract CO2 with Deployable, Ownable {
 
     get fun totalInfo(): TotalInfo {
         return TotalInfo{
-            short: self.deliveryInfo,
-            owner: self.owner,
-            courier: self.courier,
-            state: self.state
+        short: self.deliveryInfo,
+        owner: self.owner,
+        courier: self.courier,
+        state: self.state
         };
     }
 }
